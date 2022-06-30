@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "zeGp/3teueQT64IIIk63QNqsmAoZxBpGcm/HEzQ1mi0=",
+  "Source": "PostJob.Api",
+  "BasePath": "_content/PostJob.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
