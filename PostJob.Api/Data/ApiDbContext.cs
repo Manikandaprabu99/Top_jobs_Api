@@ -15,5 +15,9 @@ namespace PostJob.Api.Data
 
         public DbSet<Post> Posts{ get; set; }
         public DbSet<User> UserDetails { get; set; }
+
+        public DbSet<Employer> EmployerDetails { get; set;}
+
+        public DbSet<Admin> AdminDetail { get; set; }
     }
 }

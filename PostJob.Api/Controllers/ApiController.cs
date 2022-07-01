@@ -129,6 +129,58 @@ namespace PostJob.Api.Controllers
             return Ok("Account Added");
         }
 
+        [HttpPost("LoginUser")]
+        public IActionResult UserLogin(UserLogin user)
+        {
+            var userAvailable = dbContext.UserDetails.Where(u => u.Email == user.Email && u.Pwd == user.Pwd).FirstOrDefault();
+            if (userAvailable != null)
+            {
+                return Ok("success");
+            }
+            return Ok("Failure");
+
+        }
+
+        [HttpPost("Employer")]
+        public IActionResult Emp(Employer employer)
+        {
+            if (dbContext.EmployerDetails.Where(u => u.Email ==employer.Email).FirstOrDefault() != null)
+            {
+                return Ok("Already Exists");
+            }
+            employer.MemberSince = DateTime.Now;
+            dbContext.EmployerDetails.Add(employer);
+            dbContext.SaveChanges();
+            return Ok("Account Added");
+        }
+
+
+        [HttpPost("EmployerLogin")]
+        public IActionResult EmployerLogin(EmployerLogin employer)
+        {
+            var userAvailable = dbContext.EmployerDetails.Where(u => u.Email == employer.Email && u.Pwd == employer.Pwd).FirstOrDefault();
+            if (userAvailable != null)
+            {
+                return Ok("success");
+            }
+            return Ok("Failure");
+
+        }
+
+        [HttpPost("AdminLogin")]
+        public IActionResult AdminLogin(AdminLogin Admin)
+        {
+            var userAvailable = dbContext.AdminDetail.Where(u => u.Email == Admin.Email && u.Pwd == Admin.Pwd).FirstOrDefault();
+            if (userAvailable != null)
+            {
+                return Ok("success");
+            }
+            return Ok("Failure");
+
+        }
+
+
+
     }
 
 
